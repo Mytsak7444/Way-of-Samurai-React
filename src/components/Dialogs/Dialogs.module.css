@@ -1,0 +1,39 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+
+}
+
+.dialogsItems {
+  padding: 10px;
+}
+
+.dialogBlock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0 5px 0;
+}
+
+.dialogImg {
+  width: 30px;
+  border-radius: 15px;
+}
+
+.dialog {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dialog:hover {
+  transform: scale(1.05);
+}
+
+.messages {
+  padding-top: 10px;
+}
+
+.sendMessageBlock {
+  display: flex;
+  padding-top: 50px;
+}

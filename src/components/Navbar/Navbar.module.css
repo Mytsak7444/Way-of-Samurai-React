@@ -1,0 +1,18 @@
+.navBlock {
+  grid-area: n;
+  background-color: #3F8BBA;
+}
+
+.item {
+  padding: 15px 0 0 10px;
+}
+
+.item a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 0 0 10px;
+}
+
+.item a.active {
+  color: rgba(42, 5, 5, 0.867);
+}
