@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, { addMessage, addPost, subscribe, updateMessage, updatePostText } from './redux/state';
+import store from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,16 +11,18 @@ export let rerenderEntireTree = (state) => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App posts={state.profilePage.posts} newPostText={state.profilePage.newPostText} newMessageText={state.messagePage.newMessageText} dialogs={state.messagePage.dialogs} messages={state.messagePage.messages} friends={state.sitebar.friends}
-          addPost={addPost} updatePostText={updatePostText} addMessage={addMessage} updateMessage={updateMessage} />
+        <App state={state} posts={store._state.profilePage.posts} newPostText={store._state.profilePage.newPostText}
+          newMessageText={store._state.messagePage.newMessageText}
+          dialogs={store._state.messagePage.dialogs} messages={store._state.messagePage.messages} friends={store._state.sitebar.friends}
+          addPost={store.addPost.bind(store)} updatePostText={store.updatePostText.bind(store)} addMessage={store.addMessage.bind(store)} updateMessage={store.updateMessage.bind(store)} />
       </BrowserRouter>
     </React.StrictMode>
   );
 }
 
-rerenderEntireTree(state);
+rerenderEntireTree(store._state);
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
