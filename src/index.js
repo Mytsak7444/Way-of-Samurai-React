@@ -14,7 +14,7 @@ export let rerenderEntireTree = (state) => {
         <App state={state} posts={store._state.profilePage.posts} newPostText={store._state.profilePage.newPostText}
           newMessageText={store._state.messagePage.newMessageText}
           dialogs={store._state.messagePage.dialogs} messages={store._state.messagePage.messages} friends={store._state.sitebar.friends}
-          dispatch={store.dispatch.bind(store)} addMessage={store.addMessage.bind(store)} updateMessage={store.updateMessage.bind(store)} />
+          dispatch={store.dispatch.bind(store)}/>
       </BrowserRouter>
     </React.StrictMode>
   );
