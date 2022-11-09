@@ -1,5 +1,5 @@
 import React from 'react';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/state';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/messageReducer';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -7,7 +7,7 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
   let dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
   let messageElements = props.messages.map(m => <Message text={m.text} id={m.id} />)
-  
+
   let newMessageElement = React.createRef();
 
   let addMessage = () => {
